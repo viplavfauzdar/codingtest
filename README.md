@@ -2,7 +2,14 @@
 
 ## Read the below two quiz source URLs
 
+https://opentdb.com/api.php?amount=5&category=11
+https://opentdb.com/api.php?amount=5&category=12
+
+
 ## Return the merged and transformed result
+
+Endpoint: /coding/exercise/quiz
+
 
 ```yaml
 {
