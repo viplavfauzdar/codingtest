@@ -4,7 +4,7 @@
 
 ## Return the merged and transformed result
 
-`
+```yaml
 {
    "quiz":[
       {
@@ -138,4 +138,4 @@
          ]
       }
    ]
-}`
+}```
