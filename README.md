@@ -10,7 +10,6 @@ https://opentdb.com/api.php?amount=5&category=12
 
 Endpoint: /coding/exercise/quiz
 
-
 ```yaml
 {
    "quiz":[
