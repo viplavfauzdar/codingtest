@@ -17,39 +17,24 @@ import java.util.Set;
 
 
 /**
- * Class to transform and merge the response from the two urls
+ * Class to transform from the two urls
  */
 
 @Service
 @Slf4j
 public class Transformer {
 
-    @Autowired
-    ReadSources readSources;
-
     /**
      * Method to transform the sources to combine them as per the contract
      * @return output of the contract
      */
-    public Output transform() {
-
-        //Read url sources
-        Category category11 = readSources.readCategory11();
-        Category category12 = readSources.readCategory12();
-
-        List<ResultIn> resultIns11 = category11.getResults();
-        List<ResultIn> resultIns12 = category12.getResults();
-
-        //combine the results from the two
-        log.info("Before {}", resultIns11);
-        resultIns11.addAll(resultIns12);
-        log.info("Combined {}", resultIns11);
+    public Output transform(List<ResultIn>  resultIns) {
 
         List<Quiz> quizList = new ArrayList<>();
 
         //get distinct categories
         Set<String> distinctCategories = new HashSet<>();
-        for(ResultIn resultIn: resultIns11){
+        for(ResultIn resultIn: resultIns){
             distinctCategories.add(resultIn.getCategory());
         }
 
@@ -58,7 +43,7 @@ public class Transformer {
             Quiz quiz = new Quiz();
             quiz.setCategory(category);
             List<ResultOut> resultOutList = new ArrayList<>();
-            for(ResultIn resultIn: resultIns11){
+            for(ResultIn resultIn: resultIns){
                 if(category.equals(resultIn.getCategory())){
                     ResultOut resultOut = new ResultOut();
                     resultOut.setType(resultIn.getType());

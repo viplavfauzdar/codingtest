@@ -40,9 +40,9 @@ public class ReadSources {
     @Async
     public Category readCategory12(){
         RestTemplate restTemplate = new RestTemplate();
-        Category category12 = restTemplate.getForObject(CATEGORY12_URL, Category.class);
-        log.info("Category12 {}", category12);
-        return category12;
+        Category category = restTemplate.getForObject(CATEGORY12_URL, Category.class);
+        log.info("Category12 {}", category);
+        return category;
     }
 
 }
